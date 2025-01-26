@@ -1,0 +1,218 @@
+// const News=(props)=> {
+
+// const [articles,setArticles]=useState([]);
+// const [loading,setLoading]=useState(true);
+// const [page,setPage]=useState(1);
+// const [totalResults,settotalResults]=useState(0);
+
+
+// const capitalizefirstletter=(string)=>{
+//   return string.charAt(0).toUpperCase()+string.slice(1);
+//   }
+    
+
+
+
+
+
+//   const Updatenews=async()=>{
+//   //  props.setProgress(10);
+//     const url=` https://newsapi.org/v2/top-headlines?country=us&apiKey=01a19429ea7741d58bba8fdff5325426&pagesize=${props.pageSize}&category=${props.category}&page=${page}`
+//    setLoading(true);
+//     let data= await fetch(url);
+//   //  props.setProgress(30);
+//     let parseddata= await data.json()
+//   //  props.setProgress(70);
+
+//    setArticles(parseddata.articles)
+//     settotalResults(parseddata.totalResults)
+//     setLoading(false)
+   
+//     // props.setProgress(100);
+//   }
+  
+// useEffect(() => {
+//   if(props.category==="general"){
+//     document.title=`Home-DAWN-NEWS`
+//     }
+//     else{
+//     document.title=  `${capitalizefirstletter(props.category)}-DAWN-NEWS`
+//     }
+//   Updatenews();
+// }, )
+
+
+
+//  const fetchMoreData = async() => {
+//   // const nextPage = page + 1; 
+//   // setPage(nextPage);
+  
+//    const url=` https://newsapi.org/v2/top-headlines?country=us&apiKey=${props.apiKey}&pagesize=${props.pageSize}&category=${props.category}&page=${page+1}`
+//    setPage(page+1) 
+ 
+//    let data= await fetch(url);
+//    let parseddata= await data.json();
+//    setArticles(articles.concat(parseddata.articles),
+//     settotalResults(parseddata.totalResults),
+   
+     
+//    )
+//   };
+
+//    return (
+      
+//         <>
+      
+
+//         <div className = "container my-3 text-center">
+//         <h2 style={{margin:"35px 0"}}>DAWN-NEWS Top {capitalizefirstletter(props.category)} Headlines  </h2>
+//         {loading && <Spinner />}
+        
+//         <InfiniteScroll
+        
+//           dataLength={articles.length}
+//           next={fetchMoreData}
+//           hasMore={articles.length<=totalResults}
+//           loader={<Spinner/>}
+          
+//         >
+//           <div className="container">
+        
+//           <div className='row'>
+//           { articles?.map((element)=>{
+            
+//         return  <div className="col-md-4" style={{margin_top:"10px"}} key={element.url}>
+
+
+//         <NewsItem 
+        
+//          title={element.title? element.title : " "}
+//          description={element.description? element.description : " "}
+//           imageUrl={element.urlToImage? element.urlToImage : " "}
+//            newsUrl={element.url}
+//             author={element.author}
+//              date={element.publishedAt}/>
+//         </div>
+//         })}
+    
+     
+//       </div>
+//       </div>
+//       </InfiniteScroll>
+      {/* <div className="container d-flex bd-highlight mb-3">
+      <button  type="button" className="btn btn-dark" onClick={this.handlePreviouspage} disabled={this.state.page<=1
+
+      } >&larr; Previous </button>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-dark" onClick={this.handlepage2}>1</button>
+    <button type="button" class="btn btn-dark" onClick={this.handlepage2}>2</button>
+    <button type="button" class="btn btn-dark" onClick={this.handlepage3}>3</button>
+    <button type="button" class="btn btn-dark" onClick={this.handlepage4} >4</button>
+  </div>
+  </div>
+      <button type="button" className="btn btn-dark" onClick={this.handleNextpage} disabled={this.state.page > 4}>Next &rarr;</button>
+
+      </div> */}
+  //     </div>
+  //     </>
+  //   )
+  // }
+
+
+// News.defaultProps=
+//   {
+//     pageSize:20,
+// category:'general'
+
+//   }
+//   News.propTypes={
+// pageSize:PropTypes.number,
+// category:PropTypes.string}
+
+export default News;
+
+
+
+// REACT LIFECYCLE METHODS
+//mounting:birth of component
+// update:growth of component
+// unmount:death of component
+// render method to render the DOM of component while update and mount runing and this can not be modify 
+// componentdidmount method used for fetching , initializing and set state of variables etc run after mount of component
+// componentdidUpdate method run when props and state change or modify run after updation of component
+// componentWillunmount before destroy of such a component in this we can perform a cleanup
+
+
+// class based component code
+//   constructor(props){
+// super(props);
+
+// }
+// if(this.props.category==="general"){
+// document.title=`Home-DAWN-NEWS`
+// }
+// else{
+// document.title=  `${this.capitalizefirstletter(this.props.category)}-DAWN-NEWS`
+//   }}
+ // this.setState({articles: parseddata.articles,
+    //   totalArticles: parseddata.totalResults,
+    //   loading:false,
+      
+    // })
+//   handlePreviouspage= async()=>{
+
+// await this.setState({page:this.state.page-1});
+// this.Updatenews();  }
+  
+
+//   handleNextpage= async()=>{
+//     if(this.state.page+1>= Math.ceil(this.state.totalResults/this.props.pageSize)){
+
+//     }
+   
+//       else{
+// await this.setState({page:this.state.page+1});
+// this.Updatenews();
+//   }}
+  
+//   handlepage1 =async()=>{
+//     await this.setState({page:1});
+//      this.Updatenews();
+//    }
+
+//   handlepage2 =async()=>{
+//    await this.setState({page:2});
+//     this.Updatenews();
+//   }
+//   handlepage3 =async()=>{
+//     await this.setState({page:3});
+//      this.Updatenews();
+//    }
+//    handlepage4 =async()=>{
+    
+//     await this.setState({page:4});
+//      this.Updatenews();
+//    }
+// async componentDidMount(){
+    
+  //   this.Updatenews();
+  // }
+
+   {/* <div className="container d-flex bd-highlight mb-3">
+      <button  type="button" className="btn btn-dark" onClick={handlePreviouspage()} disabled={this.state.page<=1
+
+      } >&larr; Previous </button>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-dark" onClick={handlepage1()}>1</button>
+    <button type="button" class="btn btn-dark" onClick={handlepage2()}>2</button>
+    <button type="button" class="btn btn-dark" onClick={handlepage3()}>3</button>
+    <button type="button" class="btn btn-dark" onClick={handlepage4()} >4</button>
+  </div> */}
+  {/* </div>
+      <button type="button" className="btn btn-dark" onClick={handleNextpage()} disabled={this.state.page > 4}>Next &rarr;</button>
+
+      </div>  */}
